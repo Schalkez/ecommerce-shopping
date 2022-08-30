@@ -3,7 +3,7 @@ import Login from './Login';
 import Register from './Register';
 
 
-function Index(props) {
+function IndexLoginRegister(props) {
     return (
         <section id="form">
             <div className="container">
@@ -23,4 +23,4 @@ function Index(props) {
     );
 }
 
-export default Index;
+export default IndexLoginRegister;

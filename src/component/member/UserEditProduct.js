@@ -14,7 +14,6 @@ function UserEditProduct(props) {
     }
     if (productInfor) {
         productInfor = JSON.parse(productInfor)
-        // console.log(productInfor)
     }
 
     const [saveCategories, setSaveCategories] = useState([]);

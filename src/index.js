@@ -10,12 +10,19 @@ import App from './App';
 import Home from './component/Home/Home';
 import Blog from './component/Blog/Blog';
 import BlogDetail from './component/Blog/BlogDetail/BlogDetail';
-import Index  from './component/member/Index';
+import IndexLoginRegister from './component/member/IndexLoginRegister';
 import UserUpdate from './component/member/UserUpdate';
 import UserAddProduct from './component/member/UserAddProduct';
 import UserEditProduct from './component/member/UserEditProduct';
 import MyProduct from './component/member/MyProduct';
+import IndexProductDetail from './component/Products/IndexProductDetail';
+import Cart from './component/Products/Cart';
 import reportWebVitals from './reportWebVitals';
+
+// const [saveQtyCart, setsaveQtyCart] = useState(0);
+//   const handleSaveQtyCart = (qty) => {
+//     setsaveQtyCart(qty)
+//   }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,11 +32,13 @@ root.render(
         <Routes>
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/blog/detail/:id' element={<BlogDetail/>}/>
-          <Route path='/login-register' element={<Index/>}/>
+          <Route path='/login-register' element={<IndexLoginRegister/>}/>
           <Route path='/account' element={<UserUpdate/>}/>
           <Route path='/add-new-product' element={<UserAddProduct/>}/>
           <Route path='/user-edit-product' element={<UserEditProduct/>}/>
           <Route path='/my-product' element={<MyProduct/>}/>
+          <Route path='/products/cart' element={<Cart/>}/>
+          <Route path='/products/product-detail/:id' element={<IndexProductDetail/>}/>
           <Route exact path='/home' element={<Home/>}/>
           <Route exact path='/' element={<Home/>}/>
         </Routes>

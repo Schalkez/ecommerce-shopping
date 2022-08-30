@@ -1626,7 +1626,8 @@ h2.title {
 }
 
 
-#cart_items .cart_info .cart_total_price {
+#cart_items .cart_info div .cart_total_price,
+#cart_items .cart_info div .cart_total span {
     color: #FE980F;
     font-size: 24px;
 }

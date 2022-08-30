@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header(props) {
+function Header({cartQty}) {
+
 
     let isLogin = localStorage.getItem("isLogin")
     if (isLogin) {
@@ -80,7 +81,7 @@ function Header(props) {
                         }
                         <li><a href><i className="fa fa-star" /> Wishlist</a></li>
                         <li><a href="checkout.html"><i className="fa fa-crosshairs" /> Checkout</a></li>
-                        <li><a href="cart.html"><i className="fa fa-shopping-cart" /> Cart <span /></a></li>
+                        <li><Link to="products/cart"><i className="fa fa-shopping-cart" /> Cart {cartQty} <span /></Link></li>
                         {
                             !!isLogin ? 
                             <li><Link onClick={handleLogout} to="/login"><i className="fa fa-lock" /> Logout</Link></li> :

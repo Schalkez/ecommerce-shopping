@@ -90,57 +90,65 @@ function UserAddProduct(props) {
         let flag = true
         if (inputs.name === undefined) {
             flag = false;
-            errObj.name = "Vui long nhap ten san pham"
+            errObj.name = "Please text the product's name"
         } else {
             if (inputs.name.length < 5) {
                 flag = false;
-                errObj.name = "Ten san pham phai lon hon 5 ky tu"
+                errObj.name = "The product's name must more than 5 character"
             }
+            if (inputs.name.length > 50) {
+                flag = false;
+                errObj.name = "The product's name cannot more than 50 character"
+            }
+
         }
         if (inputs.price === undefined) {
             flag = false;
-            errObj.price = "Vui long nhap price"
+            errObj.price = "Please text the product's price"
         }
         if (getCategoryID == false) {
             flag = false;
-            errObj.category = "Vui long nhap category"
+            errObj.category = "Please text the product's category"
         }
         if (getBrandID == false) {
             flag = false;
-            errObj.brand = "Vui long nhap brand"
+            errObj.brand = "Please text the product's brand"
         }
 
         if (showStatus === 0) {
             if (inputs.sale === undefined) {
                 flag = false;
-                errObj.sale = "Vui long nhap phan tram muon sale"
+                errObj.sale = "Please text the product's sale percent"
             }
         }
         
         if (inputs.company === undefined) {
             flag = false;
-            errObj.company = "Vui long nhap company profile"
+            errObj.company = "Please text the product's company profile"
         }
-        if (!!files[0]) {
+        console.log(files.length)
+
+        if (files.length > 1) {
             if (checkSize.includes("false") === false){
                 if (checkFilesFormat.includes("false")) {
                     flag = false;
-                    errObj.avatar = "file sai dinh dang";
+                    errObj.avatar = "File format must be Jpg, Png, Jpeg";
                 } else {
                     if (files.length > 3) {
                         flag = false;
-                        errObj.avatar = "Khong duoc tai qua 3 anh";
+                        errObj.avatar = "Please upload product's image less than 3";
                     } else {
                         setErrors({})
                     }
                 }
             } else {
                 flag = false;
-                errObj.avatar = "anh lon hon 1mb";
+                errObj.avatar = "Please upload product's image size less than 1MB";
             }
         } else {
+            console.log(files)
             flag = false;
-            errObj.avatar = "Ban chua tai file"
+            errObj.avatar = "You not upload file yet"
         }
 
         
@@ -171,7 +179,7 @@ function UserAddProduct(props) {
                 if (res.data.errors) {
                     console.log(res.data.errors)
                 } else {
-                    alert("Tai len san pham thanh cong");
+                    alert("Product Uploaded Successfully");
                     navigate("/my-product");
                 }
             })
