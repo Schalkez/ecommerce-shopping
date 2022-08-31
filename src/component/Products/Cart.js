@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { qtyDecrement, qtyIncrement } from '../../action/cartQty';
+import { qtyDecrement, qtyIncrement } from '../../actions/cartQty';
 import { useDispatch } from 'react-redux'
 
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import HomeProductCategory from './HomeProductCategory';
 import HomeProductRecomment from './HomeProductRecomment';
-import { qtyIncrement } from '../../action/cartQty';
+import { qtyIncrement } from '../../actions/cartQty';
 import { useDispatch } from 'react-redux'
 
 function Home(props) {
