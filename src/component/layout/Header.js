@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-function Header({cartQty}) {
+function Header() {
 
+    const qtyCart = useSelector(state => state.qty)
 
     let isLogin = localStorage.getItem("isLogin")
     if (isLogin) {
@@ -81,7 +83,7 @@ function Header({cartQty}) {
                         }
                         <li><a href><i className="fa fa-star" /> Wishlist</a></li>
                         <li><a href="checkout.html"><i className="fa fa-crosshairs" /> Checkout</a></li>
-                        <li><Link to="products/cart"><i className="fa fa-shopping-cart" /> Cart {cartQty} <span /></Link></li>
+                        <li><Link to="products/cart"><i className="fa fa-shopping-cart" /> Cart {qtyCart} <span /></Link></li>
                         {
                             !!isLogin ? 
                             <li><Link onClick={handleLogout} to="/login"><i className="fa fa-lock" /> Logout</Link></li> :

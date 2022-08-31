@@ -1,22 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../UserContext';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { qtyDecrement, qtyIncrement } from '../../action/cartQty';
+import { useDispatch } from 'react-redux'
+
 
 function Cart(props) {
 
-    const cartSaveQty = useContext(UserContext)
+    const dispatch = useDispatch()
+
 
     let productCart = localStorage.getItem("Cart")
     if (productCart) {
         productCart = JSON.parse(productCart)
     }
-
-    let qtyCart = 0
-    Object.keys(productCart).map(key => {
-      qtyCart += productCart[key]
-    })
-
-    cartSaveQty(qtyCart)
 
     const [saveCart, setSaveCart] = useState("");
     
@@ -53,6 +49,11 @@ function Cart(props) {
       localStorage.setItem("Cart" ,JSON.stringify(productCart))
       
       setSaveCart(xx)
+
+      // hien thi len qtycart bang redux
+      const action = qtyIncrement()
+
+      dispatch(action)
 
     }
     
@@ -99,6 +100,11 @@ function Cart(props) {
       localStorage.setItem("Cart" ,JSON.stringify(productCart))
       
       setSaveCart(xx)
+
+      // show to cartqty using redux
+      const action = qtyDecrement()
+
+      dispatch(action)
 
     }
 

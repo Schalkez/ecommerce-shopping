@@ -18,32 +18,31 @@ import MyProduct from './component/member/MyProduct';
 import IndexProductDetail from './component/Products/IndexProductDetail';
 import Cart from './component/Products/Cart';
 import reportWebVitals from './reportWebVitals';
-
-// const [saveQtyCart, setsaveQtyCart] = useState(0);
-//   const handleSaveQtyCart = (qty) => {
-//     setsaveQtyCart(qty)
-//   }
+import { Provider } from 'react-redux';
+import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <App>
-        <Routes>
-          <Route path='/blog' element={<Blog/>}/>
-          <Route path='/blog/detail/:id' element={<BlogDetail/>}/>
-          <Route path='/login-register' element={<IndexLoginRegister/>}/>
-          <Route path='/account' element={<UserUpdate/>}/>
-          <Route path='/add-new-product' element={<UserAddProduct/>}/>
-          <Route path='/user-edit-product' element={<UserEditProduct/>}/>
-          <Route path='/my-product' element={<MyProduct/>}/>
-          <Route path='/products/cart' element={<Cart/>}/>
-          <Route path='/products/product-detail/:id' element={<IndexProductDetail/>}/>
-          <Route exact path='/home' element={<Home/>}/>
-          <Route exact path='/' element={<Home/>}/>
-        </Routes>
-      </App>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App>
+          <Routes>
+            <Route path='/blog' element={<Blog/>}/>
+            <Route path='/blog/detail/:id' element={<BlogDetail/>}/>
+            <Route path='/login-register' element={<IndexLoginRegister/>}/>
+            <Route path='/account' element={<UserUpdate/>}/>
+            <Route path='/add-new-product' element={<UserAddProduct/>}/>
+            <Route path='/user-edit-product' element={<UserEditProduct/>}/>
+            <Route path='/my-product' element={<MyProduct/>}/>
+            <Route path='/products/cart' element={<Cart/>}/>
+            <Route path='/products/product-detail/:id' element={<IndexProductDetail/>}/>
+            <Route exact path='/home' element={<Home/>}/>
+            <Route exact path='/' element={<Home/>}/>
+          </Routes>
+        </App>
+      </Router>
+    </Provider>
   </React.StrictMode>
 );
 

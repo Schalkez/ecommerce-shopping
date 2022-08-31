@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import HomeProductCategory from './HomeProductCategory';
 import HomeProductRecomment from './HomeProductRecomment';
-import { UserContext } from '../../UserContext';
+import { qtyIncrement } from '../../action/cartQty';
+import { useDispatch } from 'react-redux'
 
 function Home(props) {
 
-    
-    const cartSaveQty = useContext(UserContext)
+    const dispatch = useDispatch()
 
     let Auth = localStorage.getItem("Auth")
     let token = localStorage.getItem("token")
@@ -80,13 +80,18 @@ function Home(props) {
         }
 
 
-        let cartQtyContext = 0
-        let cartQty = {...prdCart}
-        Object.keys(cartQty).map(key => {
-            cartQtyContext += cartQty[key]
-        })
-        cartSaveQty(cartQtyContext)
-        console.log(cartQtyContext)
+        // let cartQtyContext = 0
+        // let cartQty = {...prdCart}
+        // Object.keys(cartQty).map(key => {
+        //     cartQtyContext += cartQty[key]
+        // })
+
+        const action = qtyIncrement()
+
+        dispatch(action)
+
+        // console.log(cartQtyContext)
+
         localStorage.setItem("Cart", JSON.stringify(prdCart))
     }
 
