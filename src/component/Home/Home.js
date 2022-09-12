@@ -55,7 +55,6 @@ function Home(props) {
         let idProduct = product.id 
 
         let prdCart = {}
-
         let productCart = JSON.parse(localStorage.getItem("Cart"))
         if (productCart) {
             prdCart = productCart
@@ -79,18 +78,9 @@ function Home(props) {
             prdCart[idProduct] ++
         }
 
-
-        // let cartQtyContext = 0
-        // let cartQty = {...prdCart}
-        // Object.keys(cartQty).map(key => {
-        //     cartQtyContext += cartQty[key]
-        // })
-
         const action = qtyIncrement()
 
         dispatch(action)
-
-        // console.log(cartQtyContext)
 
         localStorage.setItem("Cart", JSON.stringify(prdCart))
     }
@@ -153,6 +143,7 @@ function Home(props) {
     return (
         <div className="col-sm-9 padding-right">
             <div className="features_items">{/*features_items*/}
+
                 <h2 className="title text-center">Features Items</h2>
 
                 <>

@@ -19,7 +19,6 @@ function Vote ({ idBlog, userData }) {
     axios.get(url)
         .then( res => {
             const allRateInfor = res.data.data;
-            console.log(allRateInfor)
             if (allRateInfor[0] !== undefined) {
               let sumRate = 0
               allRateInfor.map((oneRate) => {

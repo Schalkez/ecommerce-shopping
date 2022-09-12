@@ -28,8 +28,8 @@ function Comment({idBlog, getComment, idComment, userData}) {
 
         let isLogedin = JSON.parse(localStorage.getItem("isLogin")) 
             if (!isLogedin) {
-                alert("Hay dang nhap de binh luan")
-                navigate("/login")
+                alert("Please login for comment")
+                navigate("/login-register")
             } else {
                 if (!(cmt.trim() === "")) {
                     const formData = new FormData ();
@@ -66,7 +66,6 @@ function Comment({idBlog, getComment, idComment, userData}) {
             }
         }
 
-        
 
     return (
             <div className="replay-box">
@@ -75,7 +74,7 @@ function Comment({idBlog, getComment, idComment, userData}) {
                         <h2>Leave a replay</h2>
                         <div className="text-area">
                             <div className="blank-arrow">
-                            <label>{userData.Auth.name}</label>
+                            <label>{userData.Auth !== null ? userData.Auth.name : "You"}</label>
                             </div>
                             <span>*</span>
                             <form method='post' onSubmit={handleSubmitCmt}>

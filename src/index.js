@@ -46,18 +46,5 @@ root.render(
   </React.StrictMode>
 );
 
-// link api:
-// http://localhost:8080/laravel/laravel/public/api/login
-// http://localhost:8080/laravel/laravel/public/api/blog
 
-// - lam 1 web mua ban
-//  + backend: cung cap api (cai nay a dang cai)
-//  + frontend: lay api ve xu ly va hien thi len web 
-//    + tao giao dien va chuyen giao dien vao reactjs (frontend.zip)
-//     ++ tao 2 trang router blog va blog detail vao, chu y nhung phan chung nhu Headers, menu screenLeft, footer co dinh 
-//     ++ goi api ve xu ly va thay doi trang blog 
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

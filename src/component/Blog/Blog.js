@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function Blog(props) {
+function Blog() {
     const [blogData, setBlogData] = useState("");
 
     useEffect(() => {
@@ -10,8 +10,6 @@ function Blog(props) {
         .then( res => setBlogData(res.data.blog.data))
         .catch(error => alert(error))
     },[])
-
-
 
     return (
         <div className="col-sm-9">

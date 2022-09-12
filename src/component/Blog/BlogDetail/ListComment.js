@@ -1,12 +1,10 @@
 import React from 'react';
 
-
-
 function ListComment({comment, getIdComment, userData}) {
 
-    const RenderReply = (cmt) => {
+    const RenderReply = ({cmt}) => {
         return comment.map((value, index) => {
-            if (value.id_comment !== 0 && value.id_comment === cmt.cmt.id ) {
+            if (value.id_comment !== 0 && value.id_comment === cmt.id ) {
                 return (
                     <li className="media second-media" key={index}>
                         <a className="pull-left" href>
@@ -54,7 +52,7 @@ function ListComment({comment, getIdComment, userData}) {
                                         onClick={()=> {
                                             userData.Auth.id !== cmt.id_user ?
                                             getIdComment(cmt.id) :
-                                            alert("Khong the tra loi binh luan cua chinh minh")
+                                            alert("You cannot reply to your comment")
                                         }}
                                     >
                                         <i className="fa fa-reply" />
